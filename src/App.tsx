@@ -1,8 +1,13 @@
 import React from 'react';
+import { useRoutes } from 'react-router';
+
 import logo from './logo.svg';
 import './App.css';
+import routes from './routes';
 
 function App() {
+  const routing = useRoutes(routes);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +24,7 @@ function App() {
           Learn React
         </a>
       </header>
+      {routing}
     </div>
   );
 }
