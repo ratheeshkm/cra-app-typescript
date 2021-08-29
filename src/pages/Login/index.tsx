@@ -1,4 +1,4 @@
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
@@ -10,9 +10,12 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+
+import { login } from 'src/pages/Login/slice';
 
 const Login = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -42,7 +45,7 @@ const Login = () => {
               password: Yup.string().max(255).required('Password is required'),
             })}
             onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
+              dispatch(login());
             }}
           >
             {({
