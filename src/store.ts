@@ -7,6 +7,7 @@ import {
 import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from 'src/rootReducer';
+import rootSaga from 'src/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware({});
 const middlewares = [sagaMiddleware];
@@ -18,6 +19,8 @@ export const store = configureStore({
     /* istanbul ignore next line */
     process.env.NODE_ENV !== 'production' || process.env.PUBLIC_URL.length > 0,
 });
+
+sagaMiddleware.run(rootSaga);
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

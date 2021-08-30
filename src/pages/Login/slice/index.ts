@@ -2,8 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: any = {
   loading: false,
-  login: false,
+  error: false,
+  isLogin: false,
   name: '',
+  clientid: '',
   email: '',
 };
 
@@ -11,11 +13,16 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    login: state => {
-      state.loading = true;
-    },
+    login: state => ({
+      ...state,
+      loading: true,
+    }),
+    loginSuccess: (state, action) => ({
+      ...state,
+      isLogin: true,
+    }),
   },
 });
 
-export const { login } = userSlice.actions;
+export const { login, loginSuccess } = userSlice.actions;
 export default userSlice.reducer;
