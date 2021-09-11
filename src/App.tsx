@@ -2,7 +2,6 @@ import React from 'react';
 import { useRoutes } from 'react-router';
 import { ThemeProvider } from '@material-ui/core';
 
-import './App.css';
 import routes from './routes';
 import theme from './theme';
 

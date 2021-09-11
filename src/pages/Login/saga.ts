@@ -1,27 +1,28 @@
-import { call, takeEvery, put } from 'redux-saga/effects';
+import { takeEvery, put } from 'redux-saga/effects';
+//import Axios from 'axios';
 
-import { login, loginSuccess } from 'src/pages/Login/slice';
+import { login /*loginSuccess */ } from 'src/pages/Login/slice';
+//import { API_BASE_URL } from 'src/apiConfig';
+/*
+const callAPI = async ({ url, method, data }: any) => {
+  return await Axios({
+    url,
+    method,
+    data,
+  });
+};
+*/
 
-// let callAPI = async ({ url, method, data }) => {
-//   return await Axios({
-//     url,
-//     method,
-//     data,
-//   });
-// };
-
-function* userLogin() {
+function* userLogin(): any {
   try {
-    // let result = yield call(() =>
-    //   callAPI({ url: 'https://localhost:5000/login' }),
-    // );
-    yield put(loginSuccess({ isLogin: true }));
+    //const result = yield call(() => callAPI({ url: `${API_BASE_URL}/login` }));
+    //yield put(loginSuccess({ isLogin: true }));
+    yield put({ type: 'TODO_FETCH_FAILED' });
   } catch (e) {
     yield put({ type: 'TODO_FETCH_FAILED' });
   }
-  console.log('Fetch login called');
 }
 
-export function* userSaga() {
+export function* userSaga(): any {
   yield takeEvery(login, userLogin);
 }

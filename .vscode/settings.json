@@ -1,11 +1,22 @@
 {
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -15,6 +26,10 @@
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.renderWhitespace": "boundary",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   },
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
@@ -32,7 +47,5 @@
   "typescript.validate.enable": false,
   "prettier.jsxBracketSameLine": true,
   "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true,
-  "stylelint.autoFixOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "prettier.singleQuote": true
 }

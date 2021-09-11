@@ -17,10 +17,13 @@ export const userSlice = createSlice({
       ...state,
       loading: true,
     }),
-    loginSuccess: (state, action) => ({
+    loginSuccess: state => ({
       ...state,
       isLogin: true,
     }),
+    logout: state => {
+      state.isLogin = false;
+    },
   },
 });
 

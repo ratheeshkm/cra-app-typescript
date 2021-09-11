@@ -1,20 +1,22 @@
+// External components
+import React from 'react';
+import { Formik, Field } from 'formik';
 import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import * as Yup from 'yup';
-import { Formik } from 'formik';
-import {
-  Box,
-  Button,
-  Container,
-  Link,
-  TextField,
-  Typography,
-} from '@material-ui/core';
 import { useDispatch } from 'react-redux';
+import { Box, Button, Container, Link, Typography } from '@material-ui/core';
+import { TextField } from 'formik-material-ui';
 
+// Components
 import { login } from 'src/pages/Login/slice';
 
 const Login = () => {
+  const initialValues = {
+    email: '',
+    password: '',
+  };
+
   const dispatch = useDispatch();
 
   return (
@@ -33,10 +35,7 @@ const Login = () => {
       >
         <Container maxWidth="sm">
           <Formik
-            initialValues={{
-              email: '',
-              password: '',
-            }}
+            initialValues={initialValues}
             validationSchema={Yup.object().shape({
               email: Yup.string()
                 .email('Must be a valid email')
@@ -48,15 +47,7 @@ const Login = () => {
               dispatch(login());
             }}
           >
-            {({
-              errors,
-              handleBlur,
-              handleChange,
-              handleSubmit,
-              isSubmitting,
-              touched,
-              values,
-            }) => (
+            {({ handleSubmit, isSubmitting }) => (
               <form onSubmit={handleSubmit}>
                 <Box sx={{ mb: 3 }}>
                   <Typography color="textPrimary" variant="h2">
@@ -64,7 +55,13 @@ const Login = () => {
                   </Typography>
                 </Box>
 
-                <TextField
+                <Field
+                  component={TextField}
+                  name="email"
+                  type="email"
+                  label="Email"
+                />
+                {/* <TextField
                   error={Boolean(touched.email && errors.email)}
                   fullWidth
                   helperText={touched.email && errors.email}
@@ -76,9 +73,14 @@ const Login = () => {
                   type="email"
                   value={values.email}
                   variant="outlined"
+                /> */}
+                <Field
+                  component={TextField}
+                  name="password"
+                  type="password"
+                  label="Password"
                 />
-
-                <TextField
+                {/* <TextField
                   error={Boolean(touched.password && errors.password)}
                   fullWidth
                   helperText={touched.password && errors.password}
@@ -90,7 +92,7 @@ const Login = () => {
                   type="password"
                   value={values.password}
                   variant="outlined"
-                />
+                /> */}
 
                 <Box sx={{ py: 2 }}>
                   <Button

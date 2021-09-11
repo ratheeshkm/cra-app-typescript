@@ -16,12 +16,14 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "eslint-plugin-prettier": "^3.4.1",
+    "axios": "^0.21.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "formik": "^2.2.9",
+    "formik-material-ui": "^4.0.0-alpha.1",
     "history": "^5.0.1",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
-    "prettier": "^2.3.2",
+    "prettier": "^2.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet-async": "^1.1.2",
@@ -39,7 +41,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false --coverage",
     "eject": "react-scripts eject",
     "eslint": "eslint --ext js,ts,tsx",
     "lint": "yarn run eslint src",
@@ -84,15 +86,22 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
       }
     }
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-sonarjs": "^0.10.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0"
   }
